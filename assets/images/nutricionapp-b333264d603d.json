@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "nutricionapp",
+  "private_key_id": "b333264d603de7c12a9a29c1362144da19bcb5cb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCQd0IbiZBRRdpK\n29wZQCBjN+h09WjKUbtsD5stnL/g1Ua64Pce7b0ek8hehoB3N/NBxdhpB2nyqE6L\ntNR9TvmBLdEGu42nSKI1vzZ1ho8ial7e5x7CE7rEzkF7OoV4BkyKOxxAK2fn5sP7\nJ77PInn7Fmi5kSDOtBP4fIXEaoBljv097PMFnId7VhUhMsjvf+Ofqj/moum0n5mR\nT1shqHrAtIYDp9gsT58A5sNOzmAXf45mhjQIv8GwIjxeW92UPyRpUbOiVzgzsFhH\nFSD3uDEzM/ecoRobbEJ7FvCIBoCDKyD4e+zc5jNgtgxB+wPbSptIeacrVrA8C/JZ\nqY5yhzktAgMBAAECggEAAr0oFTKR+GB9J38smJP1KTxlnVYLww4yofVXyVEX+DDC\n8wcR2FXEiKBfo58kL15xr7ULCc64rP+Q4agvgSKuq0rNlDWZFWtUm/VAmJDRBOOE\nYfB6zk4mc9W/OxFcd26TI+nD+tl30lc3LvtNbEroiiCeIqqENzcFy+e8d4FXZtV8\nXz23QPwK1WJSpExMUb4vqb1zMHrhlSxDxg79449acF19HffQfdW7kFzqwQkfVzt1\nSIBUk4wjpnyVZLuzKC/emno9TpfNYInG8IuMQLiZfVGOwb09/3l0+U9pze5xJzsI\nfoSF23ap6XsGkLhI9JbrSzwLy9GQ9kuBEF3aGZ4asQKBgQDFWUmTtKSljNvMocbJ\nPWM8t0HO6bEgQTSWKm8AAHx+SJZcKAAVhdQSK9sxTZ7s29CbeYJ2y8VBtI5pNcUE\ngEdT+dddx5HQpZAUVPP7rtcMqNSA/Dtybs+UclqWbmgberI0hy0fsqdar6ydtnsY\nGVC4Fgccgh8ZfkJ9qeX5toweWQKBgQC7ZoahnmB7wLSWC6RTVocWzPtcFv5Xms1o\nFkL0g0xViOy37cz1TfGhNch7P1SqRlXwJxfqLeS47QDyGgtiUkncG6dLsLebMzt3\nfdMZfDaAWLVdbdC+tKggH4an6SZCEwt42IdH9yTpWcsYriUF2N861XR+HuRlN97P\nRCCc+2Xe9QKBgFg/dxFfxAhrlpZI+VVf6BJseDcIdTZRMiy8SOqdTQ5Dc0k+cdst\n/wkpJ1lCtoCAQyZjDZ4FvO2Gye/uJW2/1yWMIWxEI8ZDYsxUuM2g/3Ufwfbz07l2\nJ8jf4fZG5LL1CN9IWztDbma1C+FyilTabSgEYaWz4ihKN31uDfK+WKXxAoGBAKI8\nABGqqpx4F95N9dSv9AMpMfJndYkh2vFhVFWZ1Vu3TjdtByLWd3i4tvb7vLAsc/mT\n3oA9euUdSNRO98wGsSp8RjigpFMX50NrCnXlsskqAtj/WNfATkyA/nIexaAuHKBh\n07vZmXrq4YhcOnD1b0vfvxnwZIm79Ig60oEUovyBAoGBAL/yrcNGvw25Eno8uP0O\nRvsJceUReSkfo4471ALGaBxrKJC1y1GWFyve5SifjKZSqrMFJBOdJRChpmnhDGYr\n/zNfm+MYZkq9TG5wc3rBt+APNUyuioSRVJ7o4LIYKRbASVcaUZDgXuX1tj12R2mw\nvp5Q6vp9pCKRlxViDWOrJjYC\n-----END PRIVATE KEY-----\n",
+  "client_email": "nutricionapp@nutricionapp.iam.gserviceaccount.com",
+  "client_id": "101146120634616343269",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nutricionapp%40nutricionapp.iam.gserviceaccount.com"
+}
