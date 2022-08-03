@@ -19,7 +19,15 @@ class LunchPage extends StatelessWidget {
     final widthButton = size.width * .5;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Almuerzo'),
+        title: const Text(
+          'Almuerzo',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        shadowColor: Colors.white,
+        elevation: 1.5,
+        foregroundColor: Colors.black,
       ),
       body: Column(
         children: [
@@ -34,21 +42,21 @@ class LunchPage extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  SizedBox(
-                    width: widthButton,
-                    height: heightButton,
-                    child: CustomButton(
-                      label: 'Buscar',
-                      icon: Icons.search,
-                      onTap: () {
-                        lunchProvider.read.init();
-                        showSearch(
-                          context: context,
-                          delegate: ProductSearchDelegate(),
-                        );
-                      },
-                    ),
-                  ),
+                  // SizedBox(
+                  //   width: widthButton,
+                  //   height: heightButton,
+                  //   child: CustomButton(
+                  //     label: 'Buscar',
+                  //     icon: Icons.search,
+                  //     onTap: () {
+                  //       lunchProvider.read.init();
+                  //       showSearch(
+                  //         context: context,
+                  //         delegate: ProductSearchDelegate(),
+                  //       );
+                  //     },
+                  //   ),
+                  // ),
                 ],
               ),
               SizedBox(

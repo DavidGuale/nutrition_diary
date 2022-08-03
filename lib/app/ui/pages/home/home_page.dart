@@ -15,7 +15,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Registro Diario')),
+      appBar: AppBar(
+        title: const Text(
+          'Registro Diario',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        shadowColor: Colors.white,
+        elevation: 2.5,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../domain/responses/daily_register_model.dart';
 
@@ -13,7 +14,13 @@ class CardProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final styleBodyText1 = Theme.of(context).textTheme.bodyText1!;
+    final size = MediaQuery.of(context).size;
+    final widthCard = size.width * .7;
+    final heightCard = size.height * .15;
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      width: widthCard,
+      height: heightCard,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -30,44 +37,100 @@ class CardProductItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                height: heightCard * .8,
                 child: Image(
-                  image: NetworkImage(product.productos![0].imageUrl == ''
-                      ? "https://www.picachoconfuturo.org/media/zoo/images/logo_taller_alimentos_94f706ccb447432cc620874951913837.jpg"
-                      : product.productos![0].imageUrl!),
-                  height: 40,
-                  width: 40,
+                  image: NetworkImage(product.productos!.isEmpty
+                      ? 'https://www.picachoconfuturo.org/media/zoo/images/logo_taller_alimentos_94f706ccb447432cc620874951913837.jpg'
+                      : (product.productos![0].imageUrl == ''
+                          ? "https://www.picachoconfuturo.org/media/zoo/images/logo_taller_alimentos_94f706ccb447432cc620874951913837.jpg"
+                          : product.productos![0].imageUrl!)),
+                  // height: heightCard * .95,
+                  width: heightCard * .85,
+                  fit: BoxFit.fitWidth,
+                  // color: Colors.grey,
                 ),
               ),
-              // const SizedBox(
-              //   width: 10,
-              // ),
+              const SizedBox(
+                width: 20,
+              ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(product.name!,
                       style: styleBodyText1.copyWith(
                           fontWeight: FontWeight.w700, fontSize: 18)),
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
-                  Text(
-                    product.productos![0].id ?? "00000000",
-                    style: styleBodyText1.copyWith(
-                        fontWeight: FontWeight.w700, color: Colors.blueGrey),
+                  Row(
+                    children: [
+                      Container(
+                        height: 20,
+                        width: 20,
+                        margin: const EdgeInsets.only(right: 10),
+                        child: SvgPicture.asset(
+                          'assets/icons/calories.svg',
+                          color: Colors.black.withOpacity(.8),
+                        ),
+                      ),
+                      Text(
+                        // product.productos![0].id ?? "00000000",
+                        product.productos!.isEmpty
+                            ? '0.0'
+                            : product.productos![0].nutriments!.energyKcal!
+                                .toStringAsFixed(1),
+                        style: styleBodyText1.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: Colors.blueGrey),
+                      ),
+                      Container(
+                        height: 20,
+                        width: 20,
+                        margin: const EdgeInsets.only(right: 10, left: 20),
+                        child: SvgPicture.asset(
+                          'assets/icons/carbohydrates.svg',
+                          color: Colors.black.withOpacity(.8),
+                        ),
+                      ),
+                      Text(
+                        // product.productos![0].id ?? "00000000",
+                        product.productos!.isEmpty
+                            ? '0.0'
+                            : product.productos![0].nutriments!.carbohydrates!
+                                .toStringAsFixed(1),
+                        style: styleBodyText1.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: Colors.blueGrey),
+                      ),
+                      Container(
+                        height: 20,
+                        width: 20,
+                        margin: const EdgeInsets.only(right: 10, left: 20),
+                        child: SvgPicture.asset(
+                          'assets/icons/proteins.svg',
+                          color: Colors.black.withOpacity(.8),
+                        ),
+                      ),
+                      Text(
+                        // product.productos![0].id ?? "00000000",
+                        product.productos!.isEmpty
+                            ? '0.0'
+                            : product.productos![0].nutriments!.proteins!
+                                .toStringAsFixed(1),
+                        style: styleBodyText1.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: Colors.blueGrey),
+                      ),
+                    ],
                   ),
                 ],
-              ),
-              SizedBox(
-                child: Text(
-                  product.productos![0].nutriments!.energyKcal == null
-                      ? '0.0'
-                      : product.productos![0].nutriments!.energyKcal.toString(),
-                  style: styleBodyText1.copyWith(
-                      fontWeight: FontWeight.w700, color: Colors.blueGrey),
-                ),
               ),
             ],
           ),

@@ -45,7 +45,7 @@ class DailyRegisterModel {
         porcion: json["porcion"] == null ? 0.0 : json["porcion"],
         userId: json["userId"] == null ? null : json["userId"],
         productos: json["productos"] == null
-            ? null
+            ? []
             : List<Producto>.from(
                 json["productos"].map((x) => Producto.fromMap(x))),
         user: json["user"] == null ? null : User.fromMap(json["user"]),

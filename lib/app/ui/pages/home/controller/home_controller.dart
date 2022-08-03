@@ -2,6 +2,7 @@ import 'package:flutter_meedu/flutter_meedu.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../../../../domain/models/product_model.dart';
+import '../../../../domain/models/user_model.dart';
 import '../../../../domain/repository/daily_register_repository.dart';
 import '../../../../domain/repository/product_repository.dart';
 import '../../../../domain/responses/daily_register_model.dart';
@@ -44,6 +45,8 @@ class HomeController extends SimpleNotifier {
   List<DailyRegisterModel> _snackRegistered = [];
   int _comida = 2;
 
+  User _user = User(firstName: '');
+
   //for search products
   List<Product> _productsSearch = [
     // Product(
@@ -73,7 +76,7 @@ class HomeController extends SimpleNotifier {
   double get fatGoal => _fatGoal;
   double get fatConsumed => _fatConsumed;
 
-  List<DailyRegisterModel> get productsRegistered => _productsRegistered;
+  List<DailyRegisterModel> get productsRegistered => [..._productsRegistered];
   List<DailyRegisterModel> get breakfastRegistered => _breakfastRegistered;
   List<DailyRegisterModel> get lunchRegistered => _lunchRegistered;
   List<DailyRegisterModel> get dinnerRegistered => _dinnerRegistered;
@@ -84,12 +87,33 @@ class HomeController extends SimpleNotifier {
 
   bool get isActive => _isActive;
   String get currentWidget => _currentWidget;
+  User get user => _user;
 
   Map<String, dynamic> map = <String, dynamic>{};
 
   //set's
   set productsRegistered(List<DailyRegisterModel> value) {
     _productsRegistered = value;
+    notify();
+  }
+
+  set breakfastRegistered(List<DailyRegisterModel> value) {
+    _breakfastRegistered = value;
+    notify();
+  }
+
+  set lunchRegistered(List<DailyRegisterModel> value) {
+    _lunchRegistered = value;
+    notify();
+  }
+
+  set dinnerRegistered(List<DailyRegisterModel> value) {
+    _dinnerRegistered = value;
+    notify();
+  }
+
+  set snackRegistered(List<DailyRegisterModel> value) {
+    _snackRegistered = value;
     notify();
   }
 
@@ -170,6 +194,11 @@ class HomeController extends SimpleNotifier {
     notify();
   }
 
+  set user(User value) {
+    _user = value;
+    notify();
+  }
+
   void agregar(DailyRegisterModel product) async {
     _productsRegistered.add(product);
     await _storage.write(
@@ -187,16 +216,56 @@ class HomeController extends SimpleNotifier {
 
   Future<void> init() async {
     isLoading = true;
+    // await CustomSockets.init();
     var bool = await getDailyRegistersByUser();
     caloriesRemaining = _caloriesGoal - _caloriesConsumed;
     isLoading = false;
+  }
+
+  void filterByMeal() {
+    breakfastRegistered =
+        productsRegistered.where((element) => element.comida == 1).toList();
+    lunchRegistered =
+        productsRegistered.where((element) => element.comida == 2).toList();
+    dinnerRegistered =
+        productsRegistered.where((element) => element.comida == 3).toList();
+    snackRegistered =
+        productsRegistered.where((element) => element.comida == 4).toList();
+    notify();
+  }
+
+  void calculateNutriments() {
+    caloriesConsumed = productsRegistered.fold<double>(0.0, (value, element) {
+      return value +
+          (element.productos!.isEmpty
+              ? 0.0
+              : element.productos![0].nutriments!.energyKcal!.toDouble());
+    });
+    carbohidratesConsumed =
+        productsRegistered.fold<double>(0.0, (value, element) {
+      return value +
+          (element.productos!.isEmpty
+              ? 0.0
+              : element.productos![0].nutriments!.carbohydrates!.toDouble());
+    });
+    proteinsConsumed = productsRegistered.fold<double>(0.0, (value, element) {
+      return value +
+          (element.productos!.isEmpty
+              ? 0.0
+              : element.productos![0].nutriments!.proteins!.toDouble());
+    });
+    fatConsumed = productsRegistered.fold<double>(0.0, (value, element) {
+      return value +
+          (element.productos!.isEmpty
+              ? 0.0
+              : element.productos![0].nutriments!.fat!.toDouble());
+    });
   }
 
   Future<bool> getDailyRegistersByUser() async {
     Map<String, dynamic> response =
         await _dailyRegisterRepository.getDailyRegistersByUser(1);
     print('response daily registers: ${response['data']}');
-    // _products = imagesResponse.registros!;
 
     if (response['error'] != null) {
       map = {"estado": -1, "msg": response["msg"]};
@@ -205,28 +274,14 @@ class HomeController extends SimpleNotifier {
     } else {
       DailyRegistersResponse dailyRegistersResponse =
           DailyRegistersResponse.fromMap(response['data']);
-      _productsRegistered = dailyRegistersResponse.registers!;
-      _breakfastRegistered =
-          _productsRegistered.where((element) => element.comida == 1).toList();
-      _lunchRegistered =
-          _productsRegistered.where((element) => element.comida == 2).toList();
-      _dinnerRegistered =
-          _productsRegistered.where((element) => element.comida == 3).toList();
-      _snackRegistered =
-          _productsRegistered.where((element) => element.comida == 4).toList();
-      caloriesConsumed =
-          _productsRegistered.fold<double>(0.0, (value, element) {
-        return value + element.productos![0].nutriments!.energyKcal!.toDouble();
-      });
-      carbohidratesConsumed =
-          _productsRegistered.fold<double>(0.0, (value, element) {
-        return value +
-            element.productos![0].nutriments!.carbohydrates!.toDouble();
-      });
-      proteinsConsumed =
-          _productsRegistered.fold<double>(0.0, (value, element) {
-        return value + element.productos![0].nutriments!.proteins!.toDouble();
-      });
+
+      productsRegistered = dailyRegistersResponse.registers!;
+      filterByMeal();
+      calculateNutriments();
+
+      user = dailyRegistersResponse.registers![0].user == null
+          ? User(firstName: '')
+          : dailyRegistersResponse.registers![0].user!;
       notify();
       return true;
     }
@@ -247,6 +302,22 @@ class HomeController extends SimpleNotifier {
       notify();
       return response;
     }
+  }
+
+  set aliments(DailyRegisterModel aliment) {
+    List<DailyRegisterModel> auxProductsRegistered = productsRegistered;
+    auxProductsRegistered.add(aliment);
+    productsRegistered = auxProductsRegistered;
+    filterByMeal();
+    calculateNutriments();
+    print('Insertando alimento home controller');
+    print(_productsRegistered);
+    notify();
+  }
+
+  //get aliments
+  List<DailyRegisterModel> getAliments() {
+    return [..._productsRegistered];
   }
 
   // Future<bool> insertDailyRegister() async {

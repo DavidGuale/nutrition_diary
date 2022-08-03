@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
       ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: AppColors.primary,
-          secondary: AppColors.secondary,
+          primary: AppColors.whiteSoft,
+          secondary: AppColors.quaternary,
         ),
       ),
     );

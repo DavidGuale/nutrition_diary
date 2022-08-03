@@ -9,23 +9,22 @@ class NutrimentInfoCard extends StatelessWidget {
     Key? key,
     this.svgSrc,
     this.title,
-    this.totalStorage,
-    this.numOfFiles,
-    this.percentage,
+    this.goal,
+    this.quantity,
     this.color,
   }) : super(key: key);
 
   // final CloudStorageInfo
-  final String? svgSrc, title, totalStorage;
-  final double? numOfFiles;
-  final int? percentage;
+  final String? svgSrc, title;
+  final double? goal;
+  final double? quantity;
   final Color? color;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final widthCard = size.width * .43;
-    final heightCard = size.height * .2;
+    final widthCard = size.width * .93;
+    final heightCard = 120.0;
     return Container(
       width: widthCard,
       height: heightCard,
@@ -39,10 +38,11 @@ class NutrimentInfoCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 padding: const EdgeInsets.all(defaultPadding * 0.4),
+                margin: const EdgeInsets.only(right: defaultPadding),
                 height: 45,
                 width: 45,
                 decoration: BoxDecoration(
@@ -54,33 +54,36 @@ class NutrimentInfoCard extends StatelessWidget {
                   color: color,
                 ),
               ),
+              Text(
+                title!,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
             ],
-          ),
-          Text(
-            title!,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
           ),
           ProgressLine(
             color: color,
-            percentage: percentage,
+            percentage:
+                goal! > 0 ? quantity! * 100 ~/ goal! : quantity! * 100 ~/ 1,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "${numOfFiles} Files",
+                //trunk quantity
+                quantity!.toStringAsFixed(2),
                 style: Theme.of(context)
                     .textTheme
                     .caption!
                     .copyWith(color: Colors.white70),
               ),
               Text(
-                totalStorage!,
+                goal.toString(),
                 style: Theme.of(context)
                     .textTheme
                     .caption!

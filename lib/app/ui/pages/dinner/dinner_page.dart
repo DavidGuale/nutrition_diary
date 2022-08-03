@@ -19,7 +19,15 @@ class DinnerPage extends StatelessWidget {
     final widthButton = size.width * .5;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cena'),
+        title: const Text(
+          'Cena',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        shadowColor: Colors.white,
+        elevation: 1.5,
+        foregroundColor: Colors.black,
       ),
       body: Column(
         children: [
@@ -34,21 +42,21 @@ class DinnerPage extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  SizedBox(
-                    width: widthButton,
-                    height: heightButton,
-                    child: CustomButton(
-                      label: 'Buscar',
-                      icon: Icons.search,
-                      onTap: () {
-                        dinnerProvider.read.init();
-                        showSearch(
-                          context: context,
-                          delegate: ProductSearchDelegate(),
-                        );
-                      },
-                    ),
-                  ),
+                  // SizedBox(
+                  //   width: widthButton,
+                  //   height: heightButton,
+                  //   child: CustomButton(
+                  //     label: 'Buscar',
+                  //     icon: Icons.search,
+                  //     onTap: () {
+                  //       dinnerProvider.read.init();
+                  //       showSearch(
+                  //         context: context,
+                  //         delegate: ProductSearchDelegate(),
+                  //       );
+                  //     },
+                  //   ),
+                  // ),
                 ],
               ),
               SizedBox(

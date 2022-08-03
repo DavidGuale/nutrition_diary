@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:nutrition_diary/app/ui/routes/routes.dart';
 
+import '../pages/breakfast/AlimentationPage copy.dart';
 import '../pages/breakfast/breakfast_page.dart';
 import '../pages/dashboard/dashboard_page.dart';
 import '../pages/dinner/dinner_page.dart';

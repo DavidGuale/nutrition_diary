@@ -126,17 +126,17 @@ class Nutriments {
   double? fiberServing;
   String? fiberUnit;
   double? fiberValue;
-  double? fruitsVegetablesNutsEstimateFromIngredients100G;
-  double? fruitsVegetablesNutsEstimateFromIngredientsServing;
+  String? fruitsVegetablesNutsEstimateFromIngredients100G;
+  String? fruitsVegetablesNutsEstimateFromIngredientsServing;
   double? iron;
   double? iron100G;
   double? ironServing;
   String? ironUnit;
   double? ironValue;
-  int? novaGroup;
-  double? novaGroup100G;
-  int? novaGroupServing;
-  int? nutritionScoreFr;
+  String? novaGroup;
+  String? novaGroup100G;
+  String? novaGroupServing;
+  String? nutritionScoreFr;
   double? nutritionScoreFr100G;
 
   factory Nutriments.fromJson(String str) =>
@@ -147,150 +147,176 @@ class Nutriments {
   factory Nutriments.fromMap(Map<String, dynamic> json) => Nutriments(
         carbohydrates: json["carbohydrates"] == null
             ? 0.0
-            : json["carbohydrates"].toDouble(),
+            : double.parse(json["carbohydrates"].toString()),
         carbohydrates100G: json["carbohydrates_100g"] == null
             ? 0.0
-            : json["carbohydrates_100g"].toDouble(),
+            : double.parse(json["carbohydrates_100g"].toString()),
         carbohydratesUnit: json["carbohydrates_unit"] == null
             ? null
             : json["carbohydrates_unit"],
         carbohydratesValue: json["carbohydrates_value"] == null
             ? 0.0
-            : json["carbohydrates_value"].toDouble(),
-        energy: json["energy"] == null ? 0.0 : json["energy"].toDouble(),
-        energyKcal:
-            json["energy-kcal"] == null ? 0.0 : json["energy-kcal"].toDouble(),
+            : double.parse(json["carbohydrates_value"].toString()),
+        energy: json["energy"] == null
+            ? 0.0
+            : double.parse(json["energy"].toString()),
+        energyKcal: json["energy-kcal"] == null
+            ? 0.0
+            : double.parse(json["energy-kcal"].toString()),
         energyKcal100G: json["energy-kcal_100g"] == null
             ? 0.0
-            : json["energy-kcal_100g"].toDouble(),
+            : double.parse(json["energy-kcal_100g"].toString()),
         energyKcalUnit:
             json["energy-kcal_unit"] == null ? '' : json["energy-kcal_unit"],
         energyKcalValue: json["energy-kcal_value"] == null
             ? 0.0
-            : json["energy-kcal_value"].toDouble(),
-        energy100G:
-            json["energy_100g"] == null ? 0.0 : json["energy_100g"].toDouble(),
+            : double.parse(json["energy-kcal_value"].toString()),
+        energy100G: json["energy_100g"] == null
+            ? 0.0
+            : double.parse(json["energy_100g"].toString()),
         energyUnit: json["energy_unit"] == null ? '' : json["energy_unit"],
         energyValue: json["energy_value"] == null
             ? 0.0
-            : json["energy_value"].toDouble(),
-        fat: json["fat"] == null ? 0.0 : json["fat"].toDouble(),
-        fat100G: json["fat_100g"] == null ? 0.0 : json["fat_100g"].toDouble(),
+            : double.parse(json["energy_value"].toString()),
+        fat: json["fat"] == null ? 0.0 : double.parse(json["fat"].toString()),
+        fat100G: json["fat_100g"] == null
+            ? 0.0
+            : double.parse(json["fat_100g"].toString()),
         fatUnit: json["fat_unit"] == null ? null : json["fat_unit"],
-        fatValue:
-            json["fat_value"] == null ? null : json["fat_value"].toDouble(),
-        proteins: json["proteins"] == null ? 0.0 : json["proteins"].toDouble(),
+        fatValue: json["fat_value"] == null
+            ? null
+            : double.parse(json["fat_value"].toString()),
+        proteins: json["proteins"] == null
+            ? 0.0
+            : double.parse(json["proteins"].toString()),
         proteins100G: json["proteins_100g"] == null
             ? 0.0
-            : json["proteins_100g"].toDouble(),
+            : double.parse(json["proteins_100g"].toString()),
         proteinsUnit:
             json["proteins_unit"] == null ? null : json["proteins_unit"],
         proteinsValue: json["proteins_value"] == null
             ? 0.0
-            : json["proteins_value"].toDouble(),
-        salt: json["salt"] == null ? 0.0 : json["salt"].toDouble(),
-        salt100G:
-            json["salt_100g"] == null ? 0.0 : json["salt_100g"].toDouble(),
+            : double.parse(json["proteins_value"].toString()),
+        salt:
+            json["salt"] == null ? 0.0 : double.parse(json["salt"].toString()),
+        salt100G: json["salt_100g"] == null
+            ? 0.0
+            : double.parse(json["salt_100g"].toString()),
         saltUnit: json["salt_unit"] == null ? '' : json["salt_unit"],
-        saltValue:
-            json["salt_value"] == null ? 0.0 : json["salt_value"].toDouble(),
+        saltValue: json["salt_value"] == null
+            ? 0.0
+            : double.parse(json["salt_value"].toString()),
         saturatedFat: json["saturated-fat"] == null
             ? 0.0
-            : json["saturated-fat"].toDouble(),
+            : double.parse(json["saturated-fat"].toString()),
         saturatedFat100G: json["saturated-fat_100g"] == null
             ? 0.0
-            : json["saturated-fat_100g"].toDouble(),
+            : double.parse(json["saturated-fat_100g"].toString()),
         saturatedFatUnit: json["saturated-fat_unit"] == null
             ? ''
             : json["saturated-fat_unit"],
         saturatedFatValue: json["saturated-fat_value"] == null
             ? 0.0
-            : json["saturated-fat_value"].toDouble(),
-        sodium: json["sodium"] == null ? 0.0 : json["sodium"].toDouble(),
-        sodium100G:
-            json["sodium_100g"] == null ? 0.0 : json["sodium_100g"].toDouble(),
+            : double.parse(json["saturated-fat_value"].toString()),
+        sodium: json["sodium"] == null
+            ? 0.0
+            : double.parse(json["sodium"].toString()),
+        sodium100G: json["sodium_100g"] == null
+            ? 0.0
+            : double.parse(json["sodium_100g"].toString()),
         sodiumUnit: json["sodium_unit"] == null ? null : json["sodium_unit"],
         sodiumValue: json["sodium_value"] == null
             ? 0.0
-            : json["sodium_value"].toDouble(),
-        sugars: json["sugars"] == null ? 0.0 : json["sugars"].toDouble(),
-        sugars100G:
-            json["sugars_100g"] == null ? 0.0 : json["sugars_100g"].toDouble(),
+            : double.parse(json["sodium_value"].toString()),
+        sugars: json["sugars"] == null
+            ? 0.0
+            : double.parse(json["sugars"].toString()),
+        sugars100G: json["sugars_100g"] == null
+            ? 0.0
+            : double.parse(json["sugars_100g"].toString()),
         sugarsUnit: json["sugars_unit"] == null ? '' : json["sugars_unit"],
         sugarsValue: json["sugars_value"] == null
             ? 0.0
-            : json["sugars_value"].toDouble(),
+            : double.parse(json["sugars_value"].toString()),
         carbohydratesServing: json["carbohydrates_serving"] == null
             ? 0.0
-            : json["carbohydrates_serving"].toDouble(),
+            : double.parse(json["carbohydrates_serving"].toString()),
         energyKcalServing: json["energy-kcal_serving"] == null
             ? 0.0
-            : json["energy-kcal_serving"].toDouble(),
+            : double.parse(json["energy-kcal_serving"].toString()),
         energyServing: json["energy_serving"] == null
             ? 0.0
-            : json["energy_serving"].toDouble(),
-        fatServing:
-            json["fat_serving"] == null ? 0.0 : json["fat_serving"].toDouble(),
+            : double.parse(json["energy_serving"].toString()),
+        fatServing: json["fat_serving"] == null
+            ? 0.0
+            : double.parse(json["fat_serving"].toString()),
         proteinsServing: json["proteins_serving"] == null
             ? 0.0
-            : json["proteins_serving"].toDouble(),
+            : double.parse(json["proteins_serving"].toString()),
         saltServing: json["salt_serving"] == null
             ? 0.0
-            : json["salt_serving"].toDouble(),
+            : double.parse(json["salt_serving"].toString()),
         saturatedFatServing: json["saturated-fat_serving"] == null
             ? 0.0
-            : json["saturated-fat_serving"].toDouble(),
+            : double.parse(json["saturated-fat_serving"].toString()),
         sodiumServing: json["sodium_serving"] == null
             ? 0.0
-            : json["sodium_serving"].toDouble(),
+            : double.parse(json["sodium_serving"].toString()),
         sugarsServing: json["sugars_serving"] == null
             ? 0.0
-            : json["sugars_serving"].toDouble(),
-        calcium: json["calcium"] == null ? 0.0 : json["calcium"].toDouble(),
+            : double.parse(json["sugars_serving"].toString()),
+        calcium: json["calcium"] == null
+            ? 0.0
+            : double.parse(json["calcium"].toString()),
         calcium100G: json["calcium_100g"] == null
             ? 0.0
-            : json["calcium_100g"].toDouble(),
+            : double.parse(json["calcium_100g"].toString()),
         calciumServing: json["calcium_serving"] == null
             ? 0.0
-            : json["calcium_serving"].toDouble(),
+            : double.parse(json["calcium_serving"].toString()),
         calciumUnit: json["calcium_unit"] == null ? null : json["calcium_unit"],
         calciumValue: json["calcium_value"] == null
             ? 0.0
-            : json["calcium_value"].toDouble(),
-        fiber: json["fiber"] == null ? 0.0 : json["fiber"].toDouble(),
-        fiber100G:
-            json["fiber_100g"] == null ? 0.0 : json["fiber_100g"].toDouble(),
+            : double.parse(json["calcium_value"].toString()),
+        fiber: json["fiber"] == null
+            ? 0.0
+            : double.parse(json["fiber"].toString()),
+        fiber100G: json["fiber_100g"] == null
+            ? 0.0
+            : double.parse(json["fiber_100g"].toString()),
         fiberServing: json["fiber_serving"] == null
             ? 0.0
-            : json["fiber_serving"].toDouble(),
+            : double.parse(json["fiber_serving"].toString()),
         fiberUnit: json["fiber_unit"] == null ? '' : json["fiber_unit"],
-        fiberValue:
-            json["fiber_value"] == null ? 0.0 : json["fiber_value"].toDouble(),
+        fiberValue: json["fiber_value"] == null
+            ? 0.0
+            : double.parse(json["fiber_value"].toString()),
         fruitsVegetablesNutsEstimateFromIngredients100G:
             json["fruits-vegetables-nuts-estimate-from-ingredients_100g"] ==
                     null
-                ? 0.0
-                : json["fruits-vegetables-nuts-estimate-from-ingredients_100g"]
-                    .toDouble(),
+                ? '0.0'
+                : json["fruits-vegetables-nuts-estimate-from-ingredients_100g"],
         fruitsVegetablesNutsEstimateFromIngredientsServing:
             json["fruits-vegetables-nuts-estimate-from-ingredients_serving"] ==
                     null
-                ? 0.0
-                : json["fruits-vegetables-nuts-estimate-from-ingredients_serving"]
-                    .toDouble(),
-        iron: json["iron"] == null ? 0.0 : json["iron"].toDouble(),
-        iron100G:
-            json["iron_100g"] == null ? 0.0 : json["iron_100g"].toDouble(),
+                ? '0.0'
+                : json[
+                    "fruits-vegetables-nuts-estimate-from-ingredients_serving"],
+        iron:
+            json["iron"] == null ? 0.0 : double.parse(json["iron"].toString()),
+        iron100G: json["iron_100g"] == null
+            ? 0.0
+            : double.parse(json["iron_100g"].toString()),
         ironServing: json["iron_serving"] == null
             ? 0.0
-            : json["iron_serving"].toDouble(),
+            : double.parse(json["iron_serving"].toString()),
         ironUnit: json["iron_unit"] == null ? '' : json["iron_unit"],
-        ironValue:
-            json["iron_value"] == null ? 0.0 : json["iron_value"].toDouble(),
-        novaGroup: json["nova-group"] == null ? null : json["nova-group"],
-        novaGroup100G: json["nova-group_100g"] == null
+        ironValue: json["iron_value"] == null
             ? 0.0
-            : json["nova-group_100g"].toDouble(),
+            : double.parse(json["iron_value"].toString()),
+        novaGroup: json["nova-group"] == null ? null : json["nova-group"],
+        novaGroup100G:
+            json["nova-group_100g"] == null ? '0.0' : json["nova-group_100g"],
         novaGroupServing: json["nova-group_serving"] == null
             ? null
             : json["nova-group_serving"],
@@ -299,7 +325,7 @@ class Nutriments {
             : json["nutrition-score-fr"],
         nutritionScoreFr100G: json["nutrition-score-fr_100g"] == null
             ? 0.0
-            : json["nutrition-score-fr_100g"].toDouble(),
+            : double.parse(json["nutrition-score-fr_100g"].toString()),
       );
 
   Map<String, dynamic> toMap() => {

@@ -19,49 +19,20 @@ class BreakfastPage extends StatelessWidget {
     final widthButton = size.width * .45;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Desayuno'),
+        title: const Text(
+          'Desayuno',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        shadowColor: Colors.white,
+        elevation: 1.5,
+        foregroundColor: Colors.black,
       ),
       body: Column(
         children: [
-          Column(
-            children: [
-              Row(
-                children: [
-                  SizedBox(
-                    height: size.height * .03,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      SizedBox(
-                        width: widthButton,
-                        height: heightButton,
-                        child: CustomButton(
-                          label: 'Buscar',
-                          icon: Icons.search,
-                          onTap: () {
-                            breakfastProvider.read.init();
-                            showSearch(
-                              context: context,
-                              delegate: ProductSearchDelegate(),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: size.height * .05,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: size.height * .05,
-              ),
-            ],
+          SizedBox(
+            height: size.height * .02,
           ),
           Expanded(child: Consumer(builder: (_, ref, __) {
             final breakfastRegistered = ref
