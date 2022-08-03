@@ -1,7 +1,6 @@
 import 'package:flutter_meedu/flutter_meedu.dart';
 
 import '../../../../domain/models/product_model.dart';
-import '../../../../domain/models/product_register_model.dart';
 import '../../../../domain/responses/daily_register_model.dart';
 import '../../home/home_page.dart';
 

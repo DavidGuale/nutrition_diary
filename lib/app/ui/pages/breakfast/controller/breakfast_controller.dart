@@ -1,7 +1,6 @@
 import 'package:flutter_meedu/flutter_meedu.dart';
 
 import '../../../../domain/models/product_model.dart';
-import '../../../../domain/models/product_register_model.dart';
 import '../../../../domain/responses/daily_register_model.dart';
 import '../../home/home_page.dart';
 
@@ -61,7 +60,6 @@ class BreakfastController extends SimpleNotifier {
   Future<void> init() async {
     // getDailyRegisters();
     homeProvider.read.comida = 1;
-    print('inicia breakfast: ${homeProvider.read.comida}');
   }
 
   Future<bool> getDailyRegisters() async {

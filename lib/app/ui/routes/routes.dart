@@ -17,4 +17,5 @@ abstract class Routes {
 
   static const String voiceAassistant = 'voiceAassistant';
   static const String dashboard = 'dashboard';
+  static const String profile = 'profile';
 }

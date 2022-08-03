@@ -22,20 +22,20 @@ class User {
   String toJson() => json.encode(toMap());
 
   factory User.fromMap(Map<String, dynamic> json) => User(
-        id: json["id"] == null ? null : json["id"],
-        firstName: json["firstName"] == null ? null : json["firstName"],
-        lastName: json["lastName"] == null ? null : json["lastName"],
-        sex: json["sex"] == null ? null : json["sex"],
-        age: json["age"] == null ? null : json["age"],
-        state: json["state"] == null ? null : json["state"],
+        id: json["id"],
+        firstName: json["firstName"],
+        lastName: json["lastName"],
+        sex: json["sex"],
+        age: json["age"],
+        state: json["state"],
       );
 
   Map<String, dynamic> toMap() => {
-        "id": id == null ? null : id,
-        "firstName": firstName == null ? null : firstName,
-        "lastName": lastName == null ? null : lastName,
-        "sex": sex == null ? null : sex,
-        "age": age == null ? null : age,
-        "state": state == null ? null : state,
+        "id": id,
+        "firstName": firstName,
+        "lastName": lastName,
+        "sex": sex,
+        "age": age,
+        "state": state,
       };
 }

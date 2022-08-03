@@ -128,10 +128,10 @@ class Metadata {
   String toJson() => json.encode(toMap());
 
   factory Metadata.fromMap(Map<String, dynamic> json) => Metadata(
-        value: json["value"] == null ? null : json["value"],
+        value: json["value"],
       );
 
   Map<String, dynamic> toMap() => {
-        "value": value == null ? null : value,
+        "value": value,
       };
 }

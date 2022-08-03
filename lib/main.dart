@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nutrition_diary/dependency_injector.dart';
 import 'package:nutrition_diary/my_app.dart';
-import 'package:provider/provider.dart';
 
-import 'app/data/resources/remote/AlimetsProvider.dart';
-import 'app/data/resources/remote/sockets-mio.dart';
+import 'app/data/resources/remote/socket.dart';
 // import 'app/data/resources/remote/sockets.dart';
 
 void main() async {
@@ -14,12 +12,5 @@ void main() async {
 
   // await DataBase.instance.comprobarBase();
   injectDependencies();
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(
-        create: (context) => AlimentsProvider(),
-      )
-    ],
-    child: const MyApp(),
-  ));
+  runApp(const MyApp());
 }

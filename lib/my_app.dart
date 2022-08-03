@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: AppColors.whiteSoft,
+          primary: Colors.white,
           secondary: AppColors.quaternary,
         ),
       ),

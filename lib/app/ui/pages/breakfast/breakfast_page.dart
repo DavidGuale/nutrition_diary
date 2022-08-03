@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 
-import '../../widgets/custom_button.dart';
-import '../../widgets/search_delegate.dart';
 import '../home/home_page.dart';
 import '../home/widgets/card_products_list.dart';
 import 'controller/breakfast_controller.dart';
@@ -15,8 +13,6 @@ class BreakfastPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final heightButton = size.height * .09;
-    final widthButton = size.width * .45;
     return Scaffold(
       appBar: AppBar(
         title: const Text(

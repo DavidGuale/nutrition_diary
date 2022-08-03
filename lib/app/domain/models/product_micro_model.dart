@@ -22,20 +22,20 @@ class Producto {
   String toJson() => json.encode(toMap());
 
   factory Producto.fromMap(Map<String, dynamic> json) => Producto(
-        id: json["id"] == null ? '0' : json["id"],
-        name: json["name"] == null ? 'producto' : json["name"],
-        quantity: json["quantity"] == null ? '0' : json["quantity"],
-        imageUrl: json["imageUrl"] == null ? null : json["imageUrl"],
+        id: json["id"] ?? '0',
+        name: json["name"] ?? 'producto',
+        quantity: json["quantity"] ?? '0',
+        imageUrl: json["imageUrl"] ?? '',
         nutriments: json["nutriments"] == null
             ? null
             : Nutriments.fromMap(json["nutriments"]),
       );
 
   Map<String, dynamic> toMap() => {
-        "id": id == null ? null : id,
-        "name": name == null ? null : name,
-        "quantity": quantity == null ? null : quantity,
-        "imageUrl": imageUrl == null ? '' : imageUrl,
+        "id": id,
+        "name": name,
+        "quantity": quantity,
+        "imageUrl": imageUrl ?? '',
         "nutriments": nutriments == null ? null : nutriments!.toMap(),
       };
 }

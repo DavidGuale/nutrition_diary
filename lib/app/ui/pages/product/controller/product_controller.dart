@@ -12,7 +12,6 @@ class ProductController extends SimpleNotifier {
 
   ProductController() {
     //verificando inicio de controlador
-    print('iniciando imagenes');
     // getProducts();
   }
 
@@ -35,7 +34,7 @@ class ProductController extends SimpleNotifier {
         porcion: 1);
     Map<String, dynamic> response = await _dailyRegisterRepository
         .insertDailyRegister(dailyRegister: register);
-    print('response insert: $response');
+    // print('response insert: $response');
     // _products = imagesResponse.registros!;
 
     if (response['error'] != null) {

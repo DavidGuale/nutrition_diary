@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -63,6 +64,13 @@ class HomeController extends SimpleNotifier {
     //         'https://tiaecuador.vteximg.com.br/arquivos/ids/179819/250503000.jpg?v=637564391796200000'),
   ];
 
+  TextEditingController _caloriesGoalController =
+      TextEditingController(text: '2100');
+  TextEditingController _carbohidratesGoalController =
+      TextEditingController(text: '4000');
+  TextEditingController _proteinsGoalController =
+      TextEditingController(text: '1500');
+  TextEditingController _fatGoalController = TextEditingController(text: '800');
   //Gets
   String? get userId => _userId;
   int get totalCalories => _totalCalories;
@@ -88,6 +96,13 @@ class HomeController extends SimpleNotifier {
   bool get isActive => _isActive;
   String get currentWidget => _currentWidget;
   User get user => _user;
+
+  //gets for text controllers
+  TextEditingController get caloriesGoalController => _caloriesGoalController;
+  TextEditingController get carbohidratesGoalController =>
+      _carbohidratesGoalController;
+  TextEditingController get proteinsGoalController => _proteinsGoalController;
+  TextEditingController get fatGoalController => _fatGoalController;
 
   Map<String, dynamic> map = <String, dynamic>{};
 
@@ -130,7 +145,6 @@ class HomeController extends SimpleNotifier {
   set caloriesConsumed(double value) {
     _caloriesConsumed = value;
     caloriesRemaining = _caloriesGoal - _caloriesConsumed;
-    print('caloriesRemaining: $value');
     notify();
   }
 
@@ -199,13 +213,31 @@ class HomeController extends SimpleNotifier {
     notify();
   }
 
+  //sets for text controllers
+  set caloriesGoalController(TextEditingController value) {
+    _caloriesGoalController = value;
+    notify();
+  }
+
+  set carbohidratesGoalController(TextEditingController value) {
+    _carbohidratesGoalController = value;
+    notify();
+  }
+
+  set proteinsGoalController(TextEditingController value) {
+    _proteinsGoalController = value;
+    notify();
+  }
+
+  set fatGoalController(TextEditingController value) {
+    _fatGoalController = value;
+    notify();
+  }
+
   void agregar(DailyRegisterModel product) async {
     _productsRegistered.add(product);
     await _storage.write(
         key: 'dailyRegister', value: _productsRegistered.toString());
-    print('products agregar: ${_productsRegistered.toString()}');
-    // json.encode(MyUserModel.toMap(model))
-
     notify();
   }
 
@@ -280,7 +312,8 @@ class HomeController extends SimpleNotifier {
       calculateNutriments();
 
       user = dailyRegistersResponse.registers![0].user == null
-          ? User(firstName: '')
+          ? User(
+              firstName: 'Juan', lastName: 'Perez', age: '65', sex: 'Masculino')
           : dailyRegistersResponse.registers![0].user!;
       notify();
       return true;
@@ -290,14 +323,13 @@ class HomeController extends SimpleNotifier {
   Future<Map<String, dynamic>> getProductsSearch(String name) async {
     Map<String, dynamic> response =
         await _productRepository.getProductsSearch(name);
-    print('response search: ${response['data']}');
 
     if (response['error'] != null) {
       map = {"estado": -1, "msg": response["msg"]};
       return map;
     } else {
-      DailyRegistersResponse imagesResponse =
-          DailyRegistersResponse.fromMap(response['data']);
+      // DailyRegistersResponse imagesResponse =
+      //     DailyRegistersResponse.fromMap(response['data']);
       // _productsSearch = imagesResponse.registers!;
       notify();
       return response;
@@ -315,29 +347,27 @@ class HomeController extends SimpleNotifier {
     notify();
   }
 
-  //get aliments
-  List<DailyRegisterModel> getAliments() {
-    return [..._productsRegistered];
+  void saveEditNutriments() {
+    caloriesGoal = caloriesGoalController.text.isEmpty
+        ? 0
+        : double.parse(_caloriesGoalController.text);
+
+    carbohidratesGoal = carbohidratesGoalController.text.isEmpty
+        ? 0
+        : double.parse(carbohidratesGoalController.text);
+
+    proteinsGoal = proteinsGoalController.text.isEmpty
+        ? 0
+        : double.parse(proteinsGoalController.text);
+
+    fatGoal = fatGoalController.text.isEmpty
+        ? 0
+        : double.parse(fatGoalController.text);
+    notify();
   }
-
-  // Future<bool> insertDailyRegister() async {
-  //   Registro register = Registro(
-  //       idProducto: _productsRegistered[0].id,
-  //       idUsuario: 1,
-  //       comida: 1,
-  //       porcion: 1);
-  //   Map<String, dynamic> response = await _dailyRegisterRepository
-  //       .insertDailyRegister(dailyRegister: register);
-  //   print('response insert: $response');
-  //   // _products = imagesResponse.registros!;
-
-  //   if (response['error'] != null) {
-  //     map = {"estado": -1, "msg": response["msg"]};
-  //     return false;
-  //   } else {
-  //     notify();
-  //     return true;
-  //   }
+  // //get aliments
+  // List<DailyRegisterModel> getAliments() {
+  //   return [..._productsRegistered];
   // }
 
 }

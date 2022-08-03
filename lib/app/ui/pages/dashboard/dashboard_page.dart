@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
+import 'package:flutter_svg/svg.dart';
 
-import '../../../data/resources/remote/sockets-mio.dart';
+import '../../../data/resources/remote/socket.dart';
+import '../../routes/routes.dart';
 import '../../theme/app_colors.dart';
 import '../home/home_page.dart';
 import 'widgets/nutriment_info_card.dart';
@@ -25,6 +27,21 @@ class DashboardPage extends StatelessWidget {
         }),
         shadowColor: Colors.white,
         elevation: 2.5,
+        foregroundColor: Colors.black,
+        actions: [
+          IconButton(
+            //insert svg as icon
+            icon: SvgPicture.asset(
+              'assets/icons/user.svg',
+              color: AppColors.primary,
+            ),
+            padding: const EdgeInsets.only(right: 16),
+            color: Colors.black,
+            onPressed: () => Navigator.of(context).pushNamed(
+              Routes.profile,
+            ),
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -57,6 +74,7 @@ class DashboardPage extends StatelessWidget {
                         final caloriesGoal = ref
                             .watch(homeProvider.select((_) => _.caloriesGoal))
                             .caloriesGoal;
+
                         return NutrimentInfoCard(
                           title: "Calorias",
                           svgSrc: "assets/icons/calories.svg",
@@ -115,7 +133,7 @@ class DashboardPage extends StatelessWidget {
                       }),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                 ],

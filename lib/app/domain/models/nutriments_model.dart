@@ -151,9 +151,7 @@ class Nutriments {
         carbohydrates100G: json["carbohydrates_100g"] == null
             ? 0.0
             : double.parse(json["carbohydrates_100g"].toString()),
-        carbohydratesUnit: json["carbohydrates_unit"] == null
-            ? null
-            : json["carbohydrates_unit"],
+        carbohydratesUnit: json["carbohydrates_unit"],
         carbohydratesValue: json["carbohydrates_value"] == null
             ? 0.0
             : double.parse(json["carbohydrates_value"].toString()),
@@ -166,15 +164,14 @@ class Nutriments {
         energyKcal100G: json["energy-kcal_100g"] == null
             ? 0.0
             : double.parse(json["energy-kcal_100g"].toString()),
-        energyKcalUnit:
-            json["energy-kcal_unit"] == null ? '' : json["energy-kcal_unit"],
+        energyKcalUnit: json["energy-kcal_unit"] ?? '',
         energyKcalValue: json["energy-kcal_value"] == null
             ? 0.0
             : double.parse(json["energy-kcal_value"].toString()),
         energy100G: json["energy_100g"] == null
             ? 0.0
             : double.parse(json["energy_100g"].toString()),
-        energyUnit: json["energy_unit"] == null ? '' : json["energy_unit"],
+        energyUnit: json["energy_unit"] ?? '',
         energyValue: json["energy_value"] == null
             ? 0.0
             : double.parse(json["energy_value"].toString()),
@@ -182,7 +179,7 @@ class Nutriments {
         fat100G: json["fat_100g"] == null
             ? 0.0
             : double.parse(json["fat_100g"].toString()),
-        fatUnit: json["fat_unit"] == null ? null : json["fat_unit"],
+        fatUnit: json["fat_unit"] ?? '',
         fatValue: json["fat_value"] == null
             ? null
             : double.parse(json["fat_value"].toString()),
@@ -192,8 +189,7 @@ class Nutriments {
         proteins100G: json["proteins_100g"] == null
             ? 0.0
             : double.parse(json["proteins_100g"].toString()),
-        proteinsUnit:
-            json["proteins_unit"] == null ? null : json["proteins_unit"],
+        proteinsUnit: json["proteins_unit"] ?? '',
         proteinsValue: json["proteins_value"] == null
             ? 0.0
             : double.parse(json["proteins_value"].toString()),
@@ -202,7 +198,7 @@ class Nutriments {
         salt100G: json["salt_100g"] == null
             ? 0.0
             : double.parse(json["salt_100g"].toString()),
-        saltUnit: json["salt_unit"] == null ? '' : json["salt_unit"],
+        saltUnit: json["salt_unit"] ?? '',
         saltValue: json["salt_value"] == null
             ? 0.0
             : double.parse(json["salt_value"].toString()),
@@ -212,9 +208,7 @@ class Nutriments {
         saturatedFat100G: json["saturated-fat_100g"] == null
             ? 0.0
             : double.parse(json["saturated-fat_100g"].toString()),
-        saturatedFatUnit: json["saturated-fat_unit"] == null
-            ? ''
-            : json["saturated-fat_unit"],
+        saturatedFatUnit: json["saturated-fat_unit"] ?? '',
         saturatedFatValue: json["saturated-fat_value"] == null
             ? 0.0
             : double.parse(json["saturated-fat_value"].toString()),
@@ -224,7 +218,7 @@ class Nutriments {
         sodium100G: json["sodium_100g"] == null
             ? 0.0
             : double.parse(json["sodium_100g"].toString()),
-        sodiumUnit: json["sodium_unit"] == null ? null : json["sodium_unit"],
+        sodiumUnit: json["sodium_unit"] ?? '',
         sodiumValue: json["sodium_value"] == null
             ? 0.0
             : double.parse(json["sodium_value"].toString()),
@@ -234,7 +228,7 @@ class Nutriments {
         sugars100G: json["sugars_100g"] == null
             ? 0.0
             : double.parse(json["sugars_100g"].toString()),
-        sugarsUnit: json["sugars_unit"] == null ? '' : json["sugars_unit"],
+        sugarsUnit: json["sugars_unit"] ?? '',
         sugarsValue: json["sugars_value"] == null
             ? 0.0
             : double.parse(json["sugars_value"].toString()),
@@ -274,7 +268,7 @@ class Nutriments {
         calciumServing: json["calcium_serving"] == null
             ? 0.0
             : double.parse(json["calcium_serving"].toString()),
-        calciumUnit: json["calcium_unit"] == null ? null : json["calcium_unit"],
+        calciumUnit: json["calcium_unit"] ?? '',
         calciumValue: json["calcium_value"] == null
             ? 0.0
             : double.parse(json["calcium_value"].toString()),
@@ -287,21 +281,16 @@ class Nutriments {
         fiberServing: json["fiber_serving"] == null
             ? 0.0
             : double.parse(json["fiber_serving"].toString()),
-        fiberUnit: json["fiber_unit"] == null ? '' : json["fiber_unit"],
+        fiberUnit: json["fiber_unit"] ?? '',
         fiberValue: json["fiber_value"] == null
             ? 0.0
             : double.parse(json["fiber_value"].toString()),
         fruitsVegetablesNutsEstimateFromIngredients100G:
-            json["fruits-vegetables-nuts-estimate-from-ingredients_100g"] ==
-                    null
-                ? '0.0'
-                : json["fruits-vegetables-nuts-estimate-from-ingredients_100g"],
+            json["fruits-vegetables-nuts-estimate-from-ingredients_100g"] ??
+                '0.0',
         fruitsVegetablesNutsEstimateFromIngredientsServing:
-            json["fruits-vegetables-nuts-estimate-from-ingredients_serving"] ==
-                    null
-                ? '0.0'
-                : json[
-                    "fruits-vegetables-nuts-estimate-from-ingredients_serving"],
+            json["fruits-vegetables-nuts-estimate-from-ingredients_serving"] ??
+                '0.0',
         iron:
             json["iron"] == null ? 0.0 : double.parse(json["iron"].toString()),
         iron100G: json["iron_100g"] == null
@@ -310,109 +299,88 @@ class Nutriments {
         ironServing: json["iron_serving"] == null
             ? 0.0
             : double.parse(json["iron_serving"].toString()),
-        ironUnit: json["iron_unit"] == null ? '' : json["iron_unit"],
+        ironUnit: json["iron_unit"] ?? '',
         ironValue: json["iron_value"] == null
             ? 0.0
             : double.parse(json["iron_value"].toString()),
-        novaGroup: json["nova-group"] == null ? null : json["nova-group"],
-        novaGroup100G:
-            json["nova-group_100g"] == null ? '0.0' : json["nova-group_100g"],
-        novaGroupServing: json["nova-group_serving"] == null
-            ? null
-            : json["nova-group_serving"],
-        nutritionScoreFr: json["nutrition-score-fr"] == null
-            ? null
-            : json["nutrition-score-fr"],
+        novaGroup: json["nova-group"] ?? '',
+        novaGroup100G: json["nova-group_100g"] ?? '0.0',
+        novaGroupServing: json["nova-group_serving"] ?? '',
+        nutritionScoreFr: json["nutrition-score-fr"] ?? '',
         nutritionScoreFr100G: json["nutrition-score-fr_100g"] == null
             ? 0.0
             : double.parse(json["nutrition-score-fr_100g"].toString()),
       );
 
   Map<String, dynamic> toMap() => {
-        "carbohydrates": carbohydrates == null ? null : carbohydrates,
-        "carbohydrates_100g":
-            carbohydrates100G == null ? null : carbohydrates100G,
-        "carbohydrates_unit":
-            carbohydratesUnit == null ? null : carbohydratesUnit,
-        "carbohydrates_value":
-            carbohydratesValue == null ? null : carbohydratesValue,
-        "energy": energy == null ? null : energy,
-        "energy-kcal": energyKcal == null ? null : energyKcal,
-        "energy-kcal_100g": energyKcal100G == null ? null : energyKcal100G,
-        "energy-kcal_unit": energyKcalUnit == null ? null : energyKcalUnit,
-        "energy-kcal_value": energyKcalValue == null ? null : energyKcalValue,
-        "energy_100g": energy100G == null ? null : energy100G,
-        "energy_unit": energyUnit == null ? null : energyUnit,
-        "energy_value": energyValue == null ? null : energyValue,
-        "fat": fat == null ? null : fat,
-        "fat_100g": fat100G == null ? null : fat100G,
-        "fat_unit": fatUnit == null ? null : fatUnit,
-        "fat_value": fatValue == null ? null : fatValue,
-        "proteins": proteins == null ? null : proteins,
-        "proteins_100g": proteins100G == null ? null : proteins100G,
-        "proteins_unit": proteinsUnit == null ? null : proteinsUnit,
-        "proteins_value": proteinsValue == null ? null : proteinsValue,
-        "salt": salt == null ? null : salt,
-        "salt_100g": salt100G == null ? null : salt100G,
-        "salt_unit": saltUnit == null ? null : saltUnit,
-        "salt_value": saltValue == null ? null : saltValue,
-        "saturated-fat": saturatedFat == null ? null : saturatedFat,
-        "saturated-fat_100g":
-            saturatedFat100G == null ? null : saturatedFat100G,
-        "saturated-fat_unit":
-            saturatedFatUnit == null ? null : saturatedFatUnit,
-        "saturated-fat_value":
-            saturatedFatValue == null ? null : saturatedFatValue,
-        "sodium": sodium == null ? null : sodium,
-        "sodium_100g": sodium100G == null ? null : sodium100G,
-        "sodium_unit": sodiumUnit == null ? null : sodiumUnit,
-        "sodium_value": sodiumValue == null ? null : sodiumValue,
-        "sugars": sugars == null ? null : sugars,
-        "sugars_100g": sugars100G == null ? null : sugars100G,
-        "sugars_unit": sugarsUnit == null ? null : sugarsUnit,
-        "sugars_value": sugarsValue == null ? null : sugarsValue,
-        "carbohydrates_serving":
-            carbohydratesServing == null ? null : carbohydratesServing,
-        "energy-kcal_serving":
-            energyKcalServing == null ? null : energyKcalServing,
-        "energy_serving": energyServing == null ? null : energyServing,
-        "fat_serving": fatServing == null ? null : fatServing,
-        "proteins_serving": proteinsServing == null ? null : proteinsServing,
-        "salt_serving": saltServing == null ? null : saltServing,
-        "saturated-fat_serving":
-            saturatedFatServing == null ? null : saturatedFatServing,
-        "sodium_serving": sodiumServing == null ? null : sodiumServing,
-        "sugars_serving": sugarsServing == null ? null : sugarsServing,
-        "calcium": calcium == null ? null : calcium,
-        "calcium_100g": calcium100G == null ? null : calcium100G,
-        "calcium_serving": calciumServing == null ? null : calciumServing,
-        "calcium_unit": calciumUnit == null ? null : calciumUnit,
-        "calcium_value": calciumValue == null ? null : calciumValue,
-        "fiber": fiber == null ? null : fiber,
-        "fiber_100g": fiber100G == null ? null : fiber100G,
-        "fiber_serving": fiberServing == null ? null : fiberServing,
-        "fiber_unit": fiberUnit == null ? null : fiberUnit,
-        "fiber_value": fiberValue == null ? null : fiberValue,
+        "carbohydrates": carbohydrates,
+        "carbohydrates_100g": carbohydrates100G,
+        "carbohydrates_unit": carbohydratesUnit,
+        "carbohydrates_value": carbohydratesValue,
+        "energy": energy,
+        "energy-kcal": energyKcal,
+        "energy-kcal_100g": energyKcal100G,
+        "energy-kcal_unit": energyKcalUnit,
+        "energy-kcal_value": energyKcalValue,
+        "energy_100g": energy100G,
+        "energy_unit": energyUnit,
+        "energy_value": energyValue,
+        "fat": fat,
+        "fat_100g": fat100G,
+        "fat_unit": fatUnit,
+        "fat_value": fatValue,
+        "proteins": proteins,
+        "proteins_100g": proteins100G,
+        "proteins_unit": proteinsUnit,
+        "proteins_value": proteinsValue,
+        "salt": salt,
+        "salt_100g": salt100G,
+        "salt_unit": saltUnit,
+        "salt_value": saltValue,
+        "saturated-fat": saturatedFat,
+        "saturated-fat_100g": saturatedFat100G,
+        "saturated-fat_unit": saturatedFatUnit,
+        "saturated-fat_value": saturatedFatValue,
+        "sodium": sodium,
+        "sodium_100g": sodium100G,
+        "sodium_unit": sodiumUnit,
+        "sodium_value": sodiumValue,
+        "sugars": sugars,
+        "sugars_100g": sugars100G,
+        "sugars_unit": sugarsUnit,
+        "sugars_value": sugarsValue,
+        "carbohydrates_serving": carbohydratesServing,
+        "energy-kcal_serving": energyKcalServing,
+        "energy_serving": energyServing,
+        "fat_serving": fatServing,
+        "proteins_serving": proteinsServing,
+        "salt_serving": saltServing,
+        "saturated-fat_serving": saturatedFatServing,
+        "sodium_serving": sodiumServing,
+        "sugars_serving": sugarsServing,
+        "calcium": calcium,
+        "calcium_100g": calcium100G,
+        "calcium_serving": calciumServing,
+        "calcium_unit": calciumUnit,
+        "calcium_value": calciumValue,
+        "fiber": fiber,
+        "fiber_100g": fiber100G,
+        "fiber_serving": fiberServing,
+        "fiber_unit": fiberUnit,
+        "fiber_value": fiberValue,
         "fruits-vegetables-nuts-estimate-from-ingredients_100g":
-            fruitsVegetablesNutsEstimateFromIngredients100G == null
-                ? null
-                : fruitsVegetablesNutsEstimateFromIngredients100G,
+            fruitsVegetablesNutsEstimateFromIngredients100G,
         "fruits-vegetables-nuts-estimate-from-ingredients_serving":
-            fruitsVegetablesNutsEstimateFromIngredientsServing == null
-                ? null
-                : fruitsVegetablesNutsEstimateFromIngredientsServing,
-        "iron": iron == null ? null : iron,
-        "iron_100g": iron100G == null ? null : iron100G,
-        "iron_serving": ironServing == null ? null : ironServing,
-        "iron_unit": ironUnit == null ? null : ironUnit,
-        "iron_value": ironValue == null ? null : ironValue,
-        "nova-group": novaGroup == null ? null : novaGroup,
-        "nova-group_100g": novaGroup100G == null ? null : novaGroup100G,
-        "nova-group_serving":
-            novaGroupServing == null ? null : novaGroupServing,
-        "nutrition-score-fr":
-            nutritionScoreFr == null ? null : nutritionScoreFr,
-        "nutrition-score-fr_100g":
-            nutritionScoreFr100G == null ? null : nutritionScoreFr100G,
+            fruitsVegetablesNutsEstimateFromIngredientsServing,
+        "iron": iron,
+        "iron_100g": iron100G,
+        "iron_serving": ironServing,
+        "iron_unit": ironUnit,
+        "iron_value": ironValue,
+        "nova-group": novaGroup,
+        "nova-group_100g": novaGroup100G,
+        "nova-group_serving": novaGroupServing,
+        "nutrition-score-fr": nutritionScoreFr,
+        "nutrition-score-fr_100g": nutritionScoreFr100G,
       };
 }

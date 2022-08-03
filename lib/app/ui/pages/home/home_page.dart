@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 
 import '../../routes/routes.dart';
+import '../../theme/app_colors.dart';
 import 'controller/home_controller.dart';
 import 'widgets/meal_card.dart';
 import 'widgets/icons.dart';
@@ -41,8 +42,8 @@ class HomePage extends StatelessWidget {
                       Navigator.of(context).pushNamed(Routes.breakfast);
                     },
                     title: "Desayuno",
-                    gradientStartColor: const Color(0xff13DEA0),
-                    gradientEndColor: const Color(0xff06B782),
+                    gradientStartColor: AppColors.primary,
+                    gradientEndColor: AppColors.primary,
                     icon: const SvgAsset(
                       assetName: AssetName.plus,
                       height: 24,
@@ -54,8 +55,8 @@ class HomePage extends StatelessWidget {
                       Navigator.of(context).pushNamed(Routes.lunch);
                     },
                     title: "Almuerzo",
-                    gradientStartColor: const Color(0xffFC67A7),
-                    gradientEndColor: const Color(0xffF6815B),
+                    gradientStartColor: AppColors.secondary,
+                    gradientEndColor: AppColors.secondary,
                     icon: const SvgAsset(
                       assetName: AssetName.plus,
                       height: 24,
@@ -67,8 +68,8 @@ class HomePage extends StatelessWidget {
                       Navigator.of(context).pushNamed(Routes.dinner);
                     },
                     title: "Cena",
-                    gradientStartColor: const Color(0xffFFD541),
-                    gradientEndColor: const Color(0xffF0B31A),
+                    gradientStartColor: AppColors.tertiary,
+                    gradientEndColor: AppColors.tertiary,
                     icon: const SvgAsset(
                       assetName: AssetName.plus,
                       height: 24,
@@ -80,6 +81,8 @@ class HomePage extends StatelessWidget {
                       Navigator.of(context).pushNamed(Routes.snack);
                     },
                     title: "Snack",
+                    gradientStartColor: AppColors.quaternary,
+                    gradientEndColor: AppColors.quaternary,
                     icon: const SvgAsset(
                       assetName: AssetName.plus,
                       height: 24,

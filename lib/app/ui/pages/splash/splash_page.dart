@@ -21,34 +21,43 @@ class SplashPage extends StatelessWidget {
       },
       builder: (_, __) {
         return Scaffold(
-          body: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("assets/images/logo1.jpg"),
-                Consumer(
-                  builder: (_, ref, __) {
-                    // final navigate = ref
-                    //     .watch(splashProvider.ids(() => ['navigate']))
-                    //     .navigate;
-                    final navigate = ref
-                        .watch(
-                          splashProvider.select(
-                            (_) => _.navigate,
-                          ),
-                        )
-                        .navigate;
-                    return !navigate
-                        ? const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 20),
-                            child: CircularProgressIndicator(),
-                          )
-                        : Container();
-                  },
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Stack(
+                  children: <Widget>[
+                    Image.asset(
+                      "assets/images/splash.jpg",
+                      fit: BoxFit.cover,
+                      height: double.infinity,
+                      width: double.infinity,
+                      alignment: Alignment.center,
+                    ),
+                    Center(
+                      child: Consumer(
+                        builder: (_, ref, __) {
+                          final navigate = ref
+                              .watch(
+                                splashProvider.select(
+                                  (_) => _.navigate,
+                                ),
+                              )
+                              .navigate;
+                          return !navigate
+                              ? const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 20),
+                                  child: CircularProgressIndicator(),
+                                )
+                              : Container();
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },

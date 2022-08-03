@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../domain/responses/daily_register_model.dart';
+import '../../../theme/app_colors.dart';
 
 class CardProductItem extends StatelessWidget {
   const CardProductItem({
@@ -23,14 +24,16 @@ class CardProductItem extends StatelessWidget {
       height: heightCard,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
+          // color: AppColors.primary.withOpacity(0.1),
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),
-          boxShadow: const [
+          border: Border.all(color: AppColors.primary, width: 1),
+          boxShadow: [
             BoxShadow(
-              color: Color.fromARGB(20, 0, 0, 0),
-              offset: Offset(3, 3),
-              blurRadius: 9,
-              spreadRadius: 7.0,
+              color: AppColors.primary.withOpacity(0.1),
+              offset: const Offset(3, 3),
+              blurRadius: 2,
+              spreadRadius: 2.0,
             ),
           ]),
       child: Column(
@@ -41,7 +44,8 @@ class CardProductItem extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],
+                  // color: Colors.grey[300],
+                  color: AppColors.whiteSoft.withOpacity(0.4),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 height: heightCard * .8,

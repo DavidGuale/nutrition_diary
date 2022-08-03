@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 
-import '../../widgets/custom_button.dart';
-import '../../widgets/search_delegate.dart';
 import '../home/home_page.dart';
 import '../home/widgets/card_products_list.dart';
 import 'controller/snack_controller.dart';
@@ -15,46 +13,22 @@ class SnackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final heightButton = size.height * .09;
-    final widthButton = size.width * .5;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Snack'),
+        title: const Text(
+          'Snack',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        shadowColor: Colors.white,
+        elevation: 1.5,
+        foregroundColor: Colors.black,
       ),
       body: Column(
         children: [
-          Column(
-            children: [
-              SizedBox(
-                height: size.height * .03,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  SizedBox(
-                    width: widthButton,
-                    height: heightButton,
-                    child: CustomButton(
-                      label: 'Buscar',
-                      icon: Icons.search,
-                      onTap: () {
-                        snackProvider.read.init();
-                        showSearch(
-                          context: context,
-                          delegate: ProductSearchDelegate(),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: size.height * .03,
-              ),
-            ],
+          SizedBox(
+            height: size.height * .03,
           ),
           Expanded(child: Consumer(builder: (_, ref, __) {
             final snackRegistered = ref

@@ -39,11 +39,11 @@ class DailyRegisterModel {
 
   factory DailyRegisterModel.fromMap(Map<String, dynamic> json) =>
       DailyRegisterModel(
-        id: json["id"] == null ? null : json["id"],
-        comida: json["comida"] == null ? null : json["comida"],
-        name: json["name"] == null ? null : json["name"],
-        porcion: json["porcion"] == null ? 0.0 : json["porcion"],
-        userId: json["userId"] == null ? null : json["userId"],
+        id: json["id"],
+        comida: json["comida"],
+        name: json["name"],
+        porcion: json["porcion"] ?? 0.0,
+        userId: json["userId"],
         productos: json["productos"] == null
             ? []
             : List<Producto>.from(
@@ -54,11 +54,11 @@ class DailyRegisterModel {
       );
 
   Map<String, dynamic> toMap() => {
-        "id": id == null ? null : id,
-        "comida": comida == null ? null : comida,
-        "name": name == null ? null : name,
-        "porcion": porcion == null ? null : porcion,
-        "userId": userId == null ? null : userId,
+        "id": id,
+        "comida": comida,
+        "name": name,
+        "porcion": porcion,
+        "userId": userId,
         "productos": productos == null
             ? null
             : List<dynamic>.from(productos!.map((x) => x.toMap())),

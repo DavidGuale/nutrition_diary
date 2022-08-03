@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 
-import '../../widgets/custom_button.dart';
-import '../../widgets/search_delegate.dart';
 import '../home/home_page.dart';
 import '../home/widgets/card_products_list.dart';
 import 'controller/lunch_controller.dart';
@@ -15,8 +13,6 @@ class LunchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final heightButton = size.height * .09;
-    final widthButton = size.width * .5;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -38,25 +34,10 @@ class LunchPage extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(
+                children: const [
+                  SizedBox(
                     width: 10,
                   ),
-                  // SizedBox(
-                  //   width: widthButton,
-                  //   height: heightButton,
-                  //   child: CustomButton(
-                  //     label: 'Buscar',
-                  //     icon: Icons.search,
-                  //     onTap: () {
-                  //       lunchProvider.read.init();
-                  //       showSearch(
-                  //         context: context,
-                  //         delegate: ProductSearchDelegate(),
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
                 ],
               ),
               SizedBox(

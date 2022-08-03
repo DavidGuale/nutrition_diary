@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 
-import '../home_page.dart';
 import 'card_product_item.dart';
 
 class CardProductsList extends StatelessWidget {

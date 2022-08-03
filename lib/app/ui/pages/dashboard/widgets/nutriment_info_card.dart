@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nutrition_diary/app/ui/theme/app_colors.dart';
 
-import 'constants.dart';
-
 class NutrimentInfoCard extends StatelessWidget {
   const NutrimentInfoCard({
     Key? key,
@@ -23,12 +21,16 @@ class NutrimentInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final widthCard = size.width * .93;
-    final heightCard = 120.0;
+    // final widthCard = size.width * .93;
+    // const heightCard = 120.0;
+
+    //cuadricula
+    final widthCard = size.width * .43;
+    const heightCard = 240.0;
     return Container(
       width: widthCard,
       height: heightCard,
-      padding: const EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(AppColors.defaultPadding),
       decoration: const BoxDecoration(
         color: AppColors.tertiary,
         borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -41,8 +43,8 @@ class NutrimentInfoCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                padding: const EdgeInsets.all(defaultPadding * 0.4),
-                margin: const EdgeInsets.only(right: defaultPadding),
+                padding: const EdgeInsets.all(AppColors.defaultPadding * 0.4),
+                margin: const EdgeInsets.only(right: AppColors.defaultPadding),
                 height: 45,
                 width: 45,
                 decoration: BoxDecoration(
@@ -54,17 +56,17 @@ class NutrimentInfoCard extends StatelessWidget {
                   color: color,
                 ),
               ),
-              Text(
-                title!,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
             ],
+          ),
+          Text(
+            title!,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: Colors.white,
+            ),
           ),
           ProgressLine(
             color: color,
@@ -84,10 +86,10 @@ class NutrimentInfoCard extends StatelessWidget {
               ),
               Text(
                 goal.toString(),
-                style: Theme.of(context)
-                    .textTheme
-                    .caption!
-                    .copyWith(color: Colors.white),
+                style: Theme.of(context).textTheme.caption!.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
             ],
           )
@@ -100,7 +102,7 @@ class NutrimentInfoCard extends StatelessWidget {
 class ProgressLine extends StatelessWidget {
   const ProgressLine({
     Key? key,
-    this.color = primaryColor,
+    this.color = AppColors.primaryColor,
     required this.percentage,
   }) : super(key: key);
 

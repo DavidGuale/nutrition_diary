@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primary = Color(0xFF487F63);
-  static const Color secondary = Color(0xFFF0B86C);
-  static const Color tertiary = Color(0xFF1A2E39);
-  static const Color quaternary = Color(0xFFFDF9F0);
-  static const Color color5 = Color(0xFFA0A0A0);
-  static Color color6 = Colors.amber.shade200;
+  static const Color primary = Color(0xFF169CAB);
+  static const Color secondary = Color(0xFFFBBD08);
+  static const Color tertiary = Color(0xFF052D3E);
+  static const Color quaternary = Color(0xFFED5C01);
   static const Color primarySoft = Color(0xFF0B5551);
-  // static const Color primaryExtraSoft = Color(0xFFEEF4F4);
   static const Color primaryExtraSoft = Color.fromARGB(255, 212, 236, 236);
-  static const Color whiteSoft = Color(0xFFF8F8F8);
-  static LinearGradient bottomShadow = LinearGradient(colors: [
-    const Color(0xFF107873).withOpacity(0.2),
-    const Color(0xFF107873).withOpacity(0)
-  ], begin: Alignment.bottomCenter, end: Alignment.topCenter);
-  static LinearGradient linearBlackBottom = LinearGradient(
-      colors: [Colors.black.withOpacity(0.45), Colors.black.withOpacity(0)],
-      begin: Alignment.bottomCenter,
-      end: Alignment.topCenter);
-  static LinearGradient linearBlackTop = LinearGradient(
-      colors: [Colors.black.withOpacity(0.5), Colors.transparent],
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter);
+  static const Color whiteSoft = Color(0xFFEBE3CB);
+
+  static const primaryColor = Color(0xFF2697FF);
+  static const secondaryColor = Color(0xFF2A2D3E);
+  static const bgColor = Color(0xFF212332);
+  static const defaultPadding = 16.0;
+
+  // Color(0xff13DEA0)
+  // const Color(0xff06B782)
+
+  // gradientStartColor: const Color(0xffFC67A7),
+  //                   gradientEndColor: const Color(0xffF6815B),
+
+  //                   gradientStartColor: const Color(0xffFFD541),
+  //                   gradientEndColor: const Color(0xffF0B31A),
+
 }
