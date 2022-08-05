@@ -27,7 +27,7 @@ class ProfilePage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () {
-            Navigator.of(context).pushReplacementNamed(Routes.dashboard);
+            Navigator.of(context).pop();
           },
         ),
       ),
@@ -53,7 +53,7 @@ class ProfilePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(100),
                       // Profile Picture
                       image: const DecorationImage(
-                          image: AssetImage('assets/images/user.png'),
+                          image: AssetImage('assets/images/profile.jpg'),
                           fit: BoxFit.cover),
                     ),
                   ),
@@ -117,8 +117,8 @@ class ProfilePage extends StatelessWidget {
                       .watch(homeProvider.select((_) => _.caloriesGoal))
                       .caloriesGoal;
                   return CustomTextInput(
-                    margin: const EdgeInsets.only(bottom: 16),
-                    label: 'Calorias',
+                    margin: const EdgeInsets.only(bottom: 6),
+                    label: 'Calorias (kcal)',
                     value: caloriesGoal.toString(),
                     controller: homeProvider.read.caloriesGoalController,
                   );
@@ -128,8 +128,8 @@ class ProfilePage extends StatelessWidget {
                       .watch(homeProvider.select((_) => _.carbohidratesGoal))
                       .carbohidratesGoal;
                   return CustomTextInput(
-                    margin: const EdgeInsets.only(bottom: 16),
-                    label: 'Carbohidratos',
+                    margin: const EdgeInsets.only(bottom: 6),
+                    label: 'Carbohidratos (g)',
                     value: carbohidratesGoal.toString(),
                     controller: homeProvider.read.carbohidratesGoalController,
                   );
@@ -139,8 +139,8 @@ class ProfilePage extends StatelessWidget {
                       .watch(homeProvider.select((_) => _.proteinsGoal))
                       .proteinsGoal;
                   return CustomTextInput(
-                    margin: const EdgeInsets.only(bottom: 16),
-                    label: 'Proteinas',
+                    margin: const EdgeInsets.only(bottom: 6),
+                    label: 'Proteinas (g)',
                     value: proteinsGoal.toString(),
                     controller: homeProvider.read.proteinsGoalController,
                   );
@@ -150,7 +150,7 @@ class ProfilePage extends StatelessWidget {
                       ref.watch(homeProvider.select((_) => _.fatGoal)).fatGoal;
                   return CustomTextInput(
                     margin: const EdgeInsets.only(bottom: 16),
-                    label: 'Grasas',
+                    label: 'Grasas (g)',
                     value: fatGoal.toString(),
                     controller: homeProvider.read.fatGoalController,
                   );
@@ -175,7 +175,7 @@ class ProfilePage extends StatelessWidget {
                           description: 'Datos guardados correctamente',
                           onTap: () {
                             Navigator.of(context)
-                                .pushReplacementNamed(Routes.dashboard);
+                                .pushReplacementNamed(Routes.mainMenu);
                           },
                         ),
                       );

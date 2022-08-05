@@ -38,20 +38,24 @@ class CustomSuccessDialog extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            SizedBox(height: sizeBoxwidth * .07),
             Icon(
-              Icons.cloud_done,
+              Icons.check_circle,
               size: sizeIcon,
               color: Colors.green,
             ),
-            Text('Éxito',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5!
-                    .copyWith(fontWeight: FontWeight.bold)),
+            // Text('',
+            //     style: Theme.of(context)
+            //         .textTheme
+            //         .headline5!
+            //         .copyWith(fontWeight: FontWeight.bold)),
             SizedBox(height: sizeBetweenTitleDescription),
             Text(
               description,
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    fontSize: 16,
+                    color: Colors.black,
+                  ),
             ),
             SizedBox(height: sizeBetweenDescriptionButton),
             SizedBox(

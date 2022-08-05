@@ -46,7 +46,7 @@ class DashboardPage extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 20),
+            margin: const EdgeInsets.only(top: 10),
             padding: const EdgeInsets.all(16),
             height: MediaQuery.of(context).size.height * 0.10,
             child: const Text(
@@ -63,7 +63,7 @@ class DashboardPage extends StatelessWidget {
               child: Column(
                 children: [
                   Wrap(
-                    spacing: 20,
+                    spacing: 15,
                     runSpacing: 25,
                     children: [
                       Consumer(builder: (_, ref, __) {

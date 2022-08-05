@@ -25,8 +25,8 @@ class NutrimentInfoCard extends StatelessWidget {
     // const heightCard = 120.0;
 
     //cuadricula
-    final widthCard = size.width * .43;
-    const heightCard = 240.0;
+    final widthCard = size.width * .45;
+    final heightCard = size.height * .30;
     return Container(
       width: widthCard,
       height: heightCard,
@@ -77,18 +77,18 @@ class NutrimentInfoCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                //trunk quantity
                 quantity!.toStringAsFixed(2),
                 style: Theme.of(context)
                     .textTheme
                     .caption!
-                    .copyWith(color: Colors.white70),
+                    .copyWith(color: Colors.white70, fontSize: 13),
               ),
               Text(
                 goal.toString(),
                 style: Theme.of(context).textTheme.caption!.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      fontSize: 14,
                     ),
               ),
             ],
@@ -102,7 +102,7 @@ class NutrimentInfoCard extends StatelessWidget {
 class ProgressLine extends StatelessWidget {
   const ProgressLine({
     Key? key,
-    this.color = AppColors.primaryColor,
+    this.color = AppColors.whiteSoft,
     required this.percentage,
   }) : super(key: key);
 
@@ -115,19 +115,19 @@ class ProgressLine extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          height: 5,
+          height: 10,
           decoration: BoxDecoration(
-            color: color!.withOpacity(0.1),
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            color: AppColors.whiteSoft.withOpacity(0.3),
+            borderRadius: const BorderRadius.all(Radius.circular(3)),
           ),
         ),
         LayoutBuilder(
           builder: (context, constraints) => Container(
             width: constraints.maxWidth * (percentage! / 100),
-            height: 5,
+            height: 10,
             decoration: BoxDecoration(
               color: color,
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              borderRadius: const BorderRadius.all(Radius.circular(3)),
             ),
           ),
         ),

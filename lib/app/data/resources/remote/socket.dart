@@ -16,6 +16,7 @@ class CustomSockets {
       config: StompConfig.SockJS(
         url:
             'https://microservice-alimentation.herokuapp.com/gs-guide-websocket',
+        // 'http://44.205.153.171:8080/alimentation/gs-guide-websocket',
         onConnect: (StompFrame frame) {
           print('Conectado');
           onConnect(frame);

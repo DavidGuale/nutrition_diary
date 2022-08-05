@@ -17,12 +17,12 @@ class CardProductItem extends StatelessWidget {
     final styleBodyText1 = Theme.of(context).textTheme.bodyText1!;
     final size = MediaQuery.of(context).size;
     final widthCard = size.width * .7;
-    final heightCard = size.height * .15;
+    final heightCard = size.height * .17;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
       width: widthCard,
       height: heightCard,
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(7),
       decoration: BoxDecoration(
           // color: AppColors.primary.withOpacity(0.1),
           color: Colors.white,
@@ -48,7 +48,7 @@ class CardProductItem extends StatelessWidget {
                   color: AppColors.whiteSoft.withOpacity(0.4),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                height: heightCard * .8,
+                height: heightCard * .85,
                 child: Image(
                   image: NetworkImage(product.productos!.isEmpty
                       ? 'https://www.picachoconfuturo.org/media/zoo/images/logo_taller_alimentos_94f706ccb447432cc620874951913837.jpg'
@@ -56,13 +56,13 @@ class CardProductItem extends StatelessWidget {
                           ? "https://www.picachoconfuturo.org/media/zoo/images/logo_taller_alimentos_94f706ccb447432cc620874951913837.jpg"
                           : product.productos![0].imageUrl!)),
                   // height: heightCard * .95,
-                  width: heightCard * .85,
+                  width: heightCard * .8,
                   fit: BoxFit.fitWidth,
                   // color: Colors.grey,
                 ),
               ),
               const SizedBox(
-                width: 20,
+                width: 18,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,14 +71,14 @@ class CardProductItem extends StatelessWidget {
                       style: styleBodyText1.copyWith(
                           fontWeight: FontWeight.w700, fontSize: 18)),
                   const SizedBox(
-                    height: 15,
+                    height: 12,
                   ),
                   Row(
                     children: [
                       Container(
-                        height: 20,
-                        width: 20,
-                        margin: const EdgeInsets.only(right: 10),
+                        height: heightCard * .25,
+                        width: heightCard * .15,
+                        margin: const EdgeInsets.only(right: 6),
                         child: SvgPicture.asset(
                           'assets/icons/calories.svg',
                           color: Colors.black.withOpacity(.8),
@@ -87,17 +87,17 @@ class CardProductItem extends StatelessWidget {
                       Text(
                         // product.productos![0].id ?? "00000000",
                         product.productos!.isEmpty
-                            ? '0.0'
+                            ? '0'
                             : product.productos![0].nutriments!.energyKcal!
-                                .toStringAsFixed(1),
+                                .toStringAsFixed(0),
                         style: styleBodyText1.copyWith(
                             fontWeight: FontWeight.w700,
                             color: Colors.blueGrey),
                       ),
                       Container(
-                        height: 20,
-                        width: 20,
-                        margin: const EdgeInsets.only(right: 10, left: 20),
+                        height: heightCard * .17,
+                        width: heightCard * .15,
+                        margin: const EdgeInsets.only(right: 6, left: 20),
                         child: SvgPicture.asset(
                           'assets/icons/carbohydrates.svg',
                           color: Colors.black.withOpacity(.8),
@@ -106,7 +106,7 @@ class CardProductItem extends StatelessWidget {
                       Text(
                         // product.productos![0].id ?? "00000000",
                         product.productos!.isEmpty
-                            ? '0.0'
+                            ? '0'
                             : product.productos![0].nutriments!.carbohydrates!
                                 .toStringAsFixed(1),
                         style: styleBodyText1.copyWith(
@@ -114,9 +114,9 @@ class CardProductItem extends StatelessWidget {
                             color: Colors.blueGrey),
                       ),
                       Container(
-                        height: 20,
-                        width: 20,
-                        margin: const EdgeInsets.only(right: 10, left: 20),
+                        height: heightCard * .2,
+                        width: heightCard * .15,
+                        margin: const EdgeInsets.only(right: 6, left: 20),
                         child: SvgPicture.asset(
                           'assets/icons/proteins.svg',
                           color: Colors.black.withOpacity(.8),
@@ -125,7 +125,7 @@ class CardProductItem extends StatelessWidget {
                       Text(
                         // product.productos![0].id ?? "00000000",
                         product.productos!.isEmpty
-                            ? '0.0'
+                            ? '0'
                             : product.productos![0].nutriments!.proteins!
                                 .toStringAsFixed(1),
                         style: styleBodyText1.copyWith(

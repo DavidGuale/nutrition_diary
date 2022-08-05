@@ -16,7 +16,8 @@ void injectDependencies() {
   //var's
   const _storage = FlutterSecureStorage();
   final _dio = Dio(BaseOptions(
-      baseUrl: 'https://microservice-alimentation.herokuapp.com/alimentation'));
+      // baseUrl: 'https://microservice-alimentation.herokuapp.com/alimentation'));
+      baseUrl: 'http://44.205.153.171:8080/alimentation'));
   (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
       (HttpClient client) {
     client.badCertificateCallback =

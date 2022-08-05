@@ -3,7 +3,7 @@ import 'package:nutrition_diary/app/ui/theme/app_colors.dart';
 
 class CustomTextInput extends StatelessWidget {
   final String? label, value;
-  final EdgeInsetsGeometry? margin, padding = const EdgeInsets.all(16);
+  final EdgeInsetsGeometry? margin, padding = const EdgeInsets.all(14);
   final Color? valueBackground;
   final TextEditingController? controller;
   const CustomTextInput({
@@ -30,8 +30,8 @@ class CustomTextInput extends StatelessWidget {
                 style: const TextStyle(color: AppColors.primary, fontSize: 18)),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 6, left: 3, right: 3),
-            width: MediaQuery.of(context).size.width * .6,
+            margin: const EdgeInsets.only(top: 3, left: 3, right: 3),
+            width: MediaQuery.of(context).size.width * .45,
             // padding: const EdgeInsets.all(16),
             child: TextFormField(
               controller: controller,
